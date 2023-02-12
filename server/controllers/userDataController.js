@@ -314,7 +314,7 @@ const approvedComments = asyncHandler (async (req,res) =>{
 })
 
 ////Adding the rejected comments to the rejected table and delete it from the newComments table
-const RejectedComments = asyncHandler (async (req, res) =>{
+const rejectedComments = asyncHandler (async (req, res) =>{
     const user_email = req.body.user_email;
     const friend_email = req.body.friend_email;
     const friend_name = req.body.friend_name;

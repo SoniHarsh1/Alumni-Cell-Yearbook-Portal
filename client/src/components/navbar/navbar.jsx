@@ -15,7 +15,7 @@ const Navbar=()=> {
   const [wordentered, setWordentered] = useState();
   const [ wordEnteredList, setWordEnteredList ] = useState([]);
   const {result, setResult} = useContext(LoginContext);
-
+  const [isActive, setIsActive] = useState(false);
 //After refreshing the page user is still signed in 
   useEffect(()=>{
     if(window.localStorage.getItem('user')!==null){
@@ -27,7 +27,7 @@ const Navbar=()=> {
   const logged = (window.localStorage.getItem('loggedin'));
   if(logged==="true"){
        setLoggedin(true);
-  ``}
+  }
     else{
         setLoggedin(false);
     }
@@ -38,17 +38,41 @@ const Navbar=()=> {
       setUser({});
       window.localStorage.removeItem('user');
       setLoggedin(false);
-      setIsActive(!isActive);
-  
+      window.localStorage.setItem('loggedin', false)
+      document.getElementById("google-login").hidden = false;
+      navigate('/');
     }
 
-    const [isActive, setIsActive] = useState(false);
+    if(loggedin===true){
+      document.getElementById("google-login").hidden = true;
+    }
 
+    //Search Engine Functions
+    useEffect(() =>{
+      axios.post('http://localhost:5000/searchword', {
+        searchword: searchword
+      }).then((res)=>{
+        setResult(res.data);
+        console.log(res.data);
+      }).catch((err)=>{
+        console.log(err)
+      })
+    })
+
+    const onEnter = () =>{
+      axios.post('http://localhost:5000/wordEntered',{
+        wordentered: wordentered
+      }).then((res)=>{
+        console.log(res.data);
+        setWordEnteredList(res.data);
+        console.log(wordEnteredList)
+      }).catch((err)=>{
+        console.log(err);
+      })
+    }
 
   return (
-    <div className="container container-nav">
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/js/fontawesome.min.js" integrity="sha512-36dJpwdEm9DCm3k6J0NZCbjf8iVMEP/uytbvaiOKECYnbCaGODuR4HSj9JFPpUqY98lc2Dpn7LpyPsuadLvTyw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <div className="overflow-x-hidden">
       <style>
         @import url('https://fonts.googleapis.com/css2?family=Quantico&display=swap');
       </style>
