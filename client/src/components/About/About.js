@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import qnas from './q&as.js'
-import './About.css';
+import './About.scss';
 
 
 class About extends Component {
@@ -9,7 +9,7 @@ class About extends Component {
       <div className='wrapper'>
         <div className='about'>
           <h1 id='about'>ABOUT ALUMNI CELL</h1>
-          <p>Lorem ipsum dolor sit amet. Qui molestias itaque et excepturi nobis et corrupti dicta qui distinctio iste ut alias rerum quo magnam deserunt. Ad necessitatibus numquam ut quibusdam maiores ad incidunt provident vel obcaecati repellat hic ullam dicta eum dolor dolore sed ipsa quaerat. Non autem rerum aut saepe unde ex labore magnam At velit velit sit aspernatur autem ut modi quisquam. Quo placeat dolor cum galisum molestias in aliquam velit qui assumenda obcaecati.</p>
+          <p>The Alumni Cell is the Institute’s student-run cell to connect and broaden the alum network. It started as a group of 4 individuals but now encompasses 5 teams working to improve Alum-Institute-Student Relations.<br></br>The Yearbook was one such initiative undertaken by the Cell. Starting with the Class of 2021, the Yearbook’s First Edition was a smashing success and helped the alums and the students connect more.<br></br>Following the same, the Yearbook Portal is another initiative headed by the Web Development Division of the Alumni Cell. A one-stop hub to curate your Yearbook profile and help others do the same.<br></br>This is the very first edition of the Yearbook Portal, and we would love to hear your comments and suggestions so we can improve in the coming years.<br></br>Please reach us at:<br></br>E-Mail: alumnicell@iiti.ac.in<br></br>Enjoy commenting!<br></br>Regards<br></br>The Alumni Cell<br></br>Indian Institute of Technology, Indore<br></br></p>
         </div>
         <h1 id='faq'>Frequently Asked Questions</h1>
         <div className='qna'>

@@ -12,10 +12,12 @@ const Navbar=()=> {
   const navigate = useNavigate();
 
   const [searchword, setSearchword] = useState("");
-  const [wordentered, setWordentered] = useState();
+  const [wordentered, setWordentered] = useState("");
   const [ wordEnteredList, setWordEnteredList ] = useState([]);
   const {result, setResult} = useContext(LoginContext);
-  const [isActive, setIsActive] = useState(false);
+  const [ isActive, setIsActive] = useState(false);
+  const [display, setDisplay] = useState(false);
+
 //After refreshing the page user is still signed in 
   useEffect(()=>{
     if(window.localStorage.getItem('user')!==null){
@@ -38,6 +40,7 @@ const Navbar=()=> {
       setUser({});
       window.localStorage.removeItem('user');
       setLoggedin(false);
+      // setIsActive(!isActive);
       window.localStorage.setItem('loggedin', false)
       document.getElementById("google-login").hidden = false;
       navigate('/');
@@ -59,7 +62,12 @@ const Navbar=()=> {
       })
     })
 
-    const onEnter = () =>{
+    const searchAWord = (event) =>{
+      setWordentered(event.target.value);
+      console.log(wordentered);
+    }
+
+    useEffect(() =>{
       axios.post('http://localhost:5000/wordEntered',{
         wordentered: wordentered
       }).then((res)=>{
@@ -70,6 +78,7 @@ const Navbar=()=> {
         console.log(err);
       })
     }
+    )
 
   return (
     <div className="overflow-x-hidden">
@@ -83,6 +92,7 @@ const Navbar=()=> {
           <Link to="/">HOME</Link>
           <Link to="/about">ABOUT</Link>
           <Link to="/team">DEVELOPERS</Link>
+          
           <li>   
           <div id='google-login'>
           </div>
@@ -92,13 +102,13 @@ const Navbar=()=> {
           <>
           <li>
           <div className="searchr">
-            <input type="text" placeholder="Search..." class="search" onChange = {(event)=>{
-                setWordentered(event.target.value);
-                console.log(wordentered);
-                onEnter();
+            <input type="text" placeholder="Search..." class="search" onChange = {(e)=>{
+              searchAWord(e);
+              (e.target.value==="")?setDisplay(false):setDisplay(true);
+              // onEnter();
             }} />
              {wordEnteredList.map((val, index)=>
-        (<li><button  className="btnsearch2" key={index} onClick={(e)=>{
+        (<li><button  className={`btnsearch2 ${(display)?"":"display-none"}`} key={index} onClick={(e)=>{
         e.preventDefault();
             setSearchword(val.email);
             // search=val;

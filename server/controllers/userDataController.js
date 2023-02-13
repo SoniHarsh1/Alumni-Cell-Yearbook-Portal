@@ -175,7 +175,7 @@ const getWordEntered = asyncHandler(async (req,res) => {
 
     const wordEntered = req.body.wordentered;
     console.log(wordEntered);
-    const User = await Users.find({name:{$regex: `(?i)${wordEntered}`}});
+const User = await Users.find({name: {$regex: new RegExp('^'+wordEntered+'.*', 'i')}}).exec();
 
     console.log(User);
 

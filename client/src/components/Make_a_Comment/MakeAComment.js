@@ -1,6 +1,6 @@
 import React, { useContext, useEffect, useState } from 'react'
 import { LoginContext } from '../../helpers/Context'
-import './MakeAComment.css'
+import './MakeAComment.scss'
 import axios from 'axios'
 
 const MakeAComment = () => {

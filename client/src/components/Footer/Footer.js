@@ -14,8 +14,8 @@ function Footer() {
                     <div className="tt">
                      The Alumni Cell is the student-run cell to connect and broaden the Institute’s alum network.<br></br><br></br>
                      <p>
-                     <span className='fa fa-map-marker'></span>
-                     Alumni and Corporate Relations Office, 7th floor, Abhinandan Bhavan, Indian Institute of Technology Indore, Khandwa Road, Simrol, Indore-453552, India</p>
+                     <span className='fa fa-map-marker bg-[#180c1e]'></span>
+                     <span className='bg-[#180c1e]'>Alumni and Corporate Relations Office, 7th floor, Abhinandan Bhavan, Indian Institute of Technology Indore, Khandwa Road, Simrol, Indore-453552, India</span></p>
                     </div>
                 </div>
                 <div className="footer-item1">

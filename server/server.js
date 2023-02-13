@@ -56,7 +56,7 @@ app.listen(port,(err) =>{
     }
 })
 
-mongoose.connect("mongodb://0.0.0.0:27017/yearbook-portal", {
+mongoose.connect("mongodb://0.0.0.0:27017/yearbook", {
     useNewUrlParser: true,
     useUnifiedTopology: true,
 })
