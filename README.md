@@ -48,4 +48,4 @@ Welcome to the Yearbook Portal, a full-stack application specifically designed a
 
   
 Portal is live now! <br/>
-<a href="https://www.yearbookportal-iiti.co.in/">yearbookportal-iiti.co.in</a>
+<a href="https://alumni-cell-yearbook-portal-1.vercel.app/">yearbookportal-iiti.co.in</a>
